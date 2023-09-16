@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
     <head>
@@ -15,6 +17,7 @@
             crossorigin="anonymous"
             defer
         ></script>
+        <script src="../scripts/main.js" defer></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">

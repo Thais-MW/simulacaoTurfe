@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="pt-br" data-bs-theme="dark">
+<html lang="pt-br" data-bs-theme="light">
     <head>
         <meta charset="UTF-8" />
         <title>Cadastro de Cavalo</title>
@@ -15,110 +17,11 @@
             crossorigin="anonymous"
             defer
         ></script>
-        <script src="/scripts/main.js" defer></script>
-        <script src="/scripts/cavalo.js" defer></script>
+        <script src="../scripts/main.js" defer></script>
+        <script src="../scripts/cavalo.js" defer></script>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a
-                                class="nav-link active"
-                                aria-current="page"
-                                href="/"
-                                >Home</a
-                            >
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                Opções
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/cadastroProprietario/"
-                                        >Cadastrar Proprietário</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/cadastroCavalo/"
-                                        >Cadastrar Cavalo</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/agendamentoCorrida/"
-                                        >Agendar Corrida</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/inscricaoCavalo/"
-                                        >Inscrever Cavalo em Corrida</a
-                                    >
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                Tema
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a
-                                        class="dropdown-item"
-                                        data-bs-theme-value="light"
-                                        >Claro</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        class="dropdown-item"
-                                        data-bs-theme-value="dark"
-                                        >Escuro</a
-                                    >
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <a class="navbar-brand" href="/">Administração - Turfe</a>
-            </div>
-        </nav>
-
-        <!-- <select>
-            <option selected>Selecione um Tema:</option>
-            <option data-bs-theme-value="dark">Escuro</option>
-            <option data-bs-theme-value="light">Claro</option>
-        </select> -->
+        <jsp:include page="../partials/header.html" />
 
         <div class="container mt-5">
             <div class="row">
