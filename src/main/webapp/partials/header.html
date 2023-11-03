@@ -9,27 +9,54 @@
 			<div id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="../home/index.jsp">Home</a>
+						<a class="nav-link active" aria-current="page" href="/simulacaoTurfe/home/index.jsp">Home</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
 							aria-expanded="false">
-							Opções
+							Proprietário
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a class="dropdown-item" href="../cadastroProprietario/index.jsp">Cadastrar
-									Proprietário</a>
+								<a class="dropdown-item" href="/simulacaoTurfe/proprietario/cadastro.jsp">Cadastrar</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="../cadastroCavalo/index.jsp">Cadastrar Cavalo</a>
+								<a class="dropdown-item" href="/simulacaoTurfe/ProprietarioList?next=proprietario/listagem.jsp">Listar</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							Cavalo
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a class="dropdown-item" href="/simulacaoTurfe/ProprietarioList?next=cavalo/cadastro.jsp">Cadastrar</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="../agendamentoCorrida/index.jsp">Agendar Corrida</a>
+								<a class="dropdown-item" href="/simulacaoTurfe/CavaloList?next=cavalo/listagem.jsp">Listar</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="../inscricaoCavalo/index.jsp">Inscrever Cavalo em
+								<a class="dropdown-item" href="/simulacaoTurfe/CavaloList?next=CorridaList?next=cavalo/inscricaoCorrida.jsp">Inscrever em
 									Corrida</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							Corrida
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a class="dropdown-item" href="/simulacaoTurfe/corrida/cadastro.jsp">Cadastrar</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="/simulacaoTurfe/CorridaList?next=corrida/listagem.jsp">Listar</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="/simulacaoTurfe/InscricaoCorridaList?next=corrida/inscricoes.jsp">Inscrições</a>
 							</li>
 						</ul>
 					</li>

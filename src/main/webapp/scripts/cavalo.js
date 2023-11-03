@@ -6,9 +6,16 @@ const inputVelocidade = document.querySelector('input[name="velocidade"]');
 const inputResistencia = document.querySelector('input[name="resistencia"]');
 const inputPreco = document.querySelector('input[name="preco"]');
 const buttonNovaAleatoridade = document.querySelector("#gerarNovaAleatoridade");
+const form = document.querySelector("#formCavalo");
 
 buttonNovaAleatoridade.addEventListener("click", () => {
-    gerarValoresAleatoriosCavalo(1000);
+    gerarValoresAleatoriosCavalo(2500);
+});
+
+form.addEventListener("submit", () => {
+	eraseCookie("velocidadeCavalo");
+	eraseCookie("resistenciaCavalo");
+	eraseCookie("precoCavalo");
 });
 
 function gerarValoresAleatoriosCavalo(adicional) {
@@ -56,6 +63,10 @@ function getCookie(name) {
 
 function setCookie(name, value) {
     document.cookie = name + "=" + value;
+}
+
+function eraseCookie(name) {
+    document.cookie = name + '=; Max-Age=0';
 }
 
 if (

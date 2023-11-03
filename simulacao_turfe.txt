@@ -6,7 +6,8 @@ CREATE TABLE proprietario(
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     nome VARCHAR(30) NOT NULL,
     cpf VARCHAR(24),
-    email VARCHAR(255)
+    email VARCHAR(255),
+    telefone varchar(20)
 );
 
 CREATE TABLE cavalo(
