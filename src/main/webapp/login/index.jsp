@@ -18,49 +18,63 @@
 </head>
 <body>
 
-	<div class="container-fluid mt-5">
+	<div class="container mt-5">
 		<div class="row">
-			<div class="col">
-				<h2>Cadastro</h2>
-				<form action="/simulacaoTurfe/UsuarioAdd" method="post">
-					<div>
-						<label for="nomeCadastro">
-							Nome:
-						</label>
-						<input type="text" name="nome" id="nomeCadastro" />
+			<div class="mb-3 mb-sm-0">
+				<ul class="nav nav-pills" role="tablist">
+					<li class="nav-item mx-3" role="presentation">
+						<button class="nav-link active" id="login-tab"
+							data-bs-toggle="tab" data-bs-target="#login-tab-pane"
+							type="button" role="tab" aria-controls="login-tab-pane"
+							aria-selected="true">Login</button>
+					</li>
+					<li class="nav-item mx-3" role="presentation">
+						<button class="nav-link" id="cadastro-tab" data-bs-toggle="tab"
+							data-bs-target="#cadastro-tab-pane" type="button" role="tab"
+							aria-controls="cadastro-tab-pane" aria-selected="false">Cadastro</button>
+					</li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active p-5" id="login-tab-pane"
+						role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+						<h5 class="card-title mb-3">Login</h5>
+						<form action="/simulacaoTurfe/UsuarioLogin" method="post">
+							<div class="mb-3">
+								<label for="emailLogin" class="form-label"> Email: </label> <input
+									type="email" class="form-control" name="email" id="emailLogin"
+									required />
+							</div>
+							<div class="mb-3">
+								<label for="senhaLogin" class="form-label"> Senha: </label> <input
+									type="password" class="form-control" name="senha"
+									id="senhaLogin" required />
+							</div>
+							<button type="submit" class="btn btn-primary">Entrar</button>
+						</form>
 					</div>
-					<div>
-						<label for="emailCadastro">
-							Email:
-						</label>
-						<input type="email" name="email" id="emailCadastro" />
+					<div class="tab-pane fade p-5" id="cadastro-tab-pane"
+						role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+						<h5 class="card-title mb-3">Cadastro</h5>
+						<form action="/simulacaoTurfe/UsuarioAdd" method="post">
+							<div class="mb-3">
+								<label for="nomeCadastro" class="form-label"> Nome: </label> <input
+									type="text" class="form-control" name="nome" id="nomeCadastro"
+									required />
+							</div>
+							<div class="mb-3">
+								<label for="emailCadastro" class="form-label"> Email: </label> <input
+									type="email" class="form-control" name="email"
+									id="emailCadastro" required />
+							</div>
+							<div class="mb-3">
+								<label for="senhaCadastro" class="form-label"> Senha: </label> <input
+									type="password" class="form-control" name="senha"
+									id="senhaCadastro" required />
+							</div>
+							<button type="submit" class="btn btn-primary">Cadastrar</button>
+						</form>
 					</div>
-					<div>
-						<label for="senhaCadastro">
-							Senha:
-						</label>
-						<input type="password" name="senha" id="senhaCadastro" />
-					</div>
-					<button type="submit">Cadastrar</button>
-				</form>
-			</div>
-			<div class="col">
-				<h2>Login</h2>
-				<form action="/simulacaoTurfe/UsuarioLogin" method="post">
-					<div>
-						<label for="emailLogin">
-							Email:
-						</label>
-						<input type="email" name="email" id="emailLogin" />
-					</div>
-					<div>
-						<label for="senhaLogin">
-							Senha:
-						</label>
-						<input type="password" name="senha" id="senhaLogin" />
-					</div>
-					<button type="submit">Entrar</button>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
