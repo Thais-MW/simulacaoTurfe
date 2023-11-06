@@ -18,7 +18,7 @@
 </head>
 <body>
 
-	<div class="container mt-5">
+	<div class="container mx-auto mt-5" style="max-width: 40rem">
 		<div class="row">
 			<div class="mb-3 mb-sm-0">
 				<ul class="nav nav-pills" role="tablist">
