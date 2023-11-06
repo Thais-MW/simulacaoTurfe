@@ -35,3 +35,10 @@ CREATE TABLE cavalo_corrida(
     FOREIGN KEY(id_cavalo) REFERENCES cavalo(id),
     FOREIGN KEY(id_corrida) REFERENCES corrida(id)
 );
+
+CREATE TABLE usuario(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(60) NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	senha VARCHAR(64) NOT NULL
+);

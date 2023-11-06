@@ -109,4 +109,43 @@
     <servlet-name>InscricaoCorridaList</servlet-name>
     <url-pattern>/InscricaoCorridaList</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UsuarioCadastrar</display-name>
+    <servlet-name>UsuarioCadastrar</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.UsuarioCadastrar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsuarioCadastrar</servlet-name>
+    <url-pattern>/UsuarioCadastrar</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UsuarioAdd</display-name>
+    <servlet-name>UsuarioAdd</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.UsuarioAdd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsuarioAdd</servlet-name>
+    <url-pattern>/UsuarioAdd</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>Filtro</display-name>
+    <filter-name>Filtro</filter-name>
+    <filter-class>br.cefet.simulacaoTurfe.control.Filtro</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Filtro</filter-name>
+    <url-pattern>/Filtro</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UsuarioLogin</display-name>
+    <servlet-name>UsuarioLogin</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.UsuarioLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsuarioLogin</servlet-name>
+    <url-pattern>/UsuarioLogin</url-pattern>
+  </servlet-mapping>
 </web-app>
