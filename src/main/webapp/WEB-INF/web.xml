@@ -238,4 +238,34 @@
     <servlet-name>CorridaDelete</servlet-name>
     <url-pattern>/CorridaDelete</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InscricaoCorridaPrepare</display-name>
+    <servlet-name>InscricaoCorridaPrepare</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.InscricaoCorridaPrepare</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InscricaoCorridaPrepare</servlet-name>
+    <url-pattern>/InscricaoCorridaPrepare</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InscricaoCorridaUpdate</display-name>
+    <servlet-name>InscricaoCorridaUpdate</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.InscricaoCorridaUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InscricaoCorridaUpdate</servlet-name>
+    <url-pattern>/InscricaoCorridaUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InscricaoCorridaDelete</display-name>
+    <servlet-name>InscricaoCorridaDelete</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.InscricaoCorridaDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InscricaoCorridaDelete</servlet-name>
+    <url-pattern>/InscricaoCorridaDelete</url-pattern>
+  </servlet-mapping>
 </web-app>

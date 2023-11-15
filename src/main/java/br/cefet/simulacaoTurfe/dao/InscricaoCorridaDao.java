@@ -7,16 +7,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.cefet.simulacaoTurfe.model.Cavalo;
 import br.cefet.simulacaoTurfe.model.InscricaoCorrida;
 
 public class InscricaoCorridaDao {
 	private Connection connection;
 
 	public InscricaoCorridaDao() {
-		connection = ConnectionFactory.getConnection();
 	}
 
 	public void adicionar(InscricaoCorrida inscricao) throws SQLException {
+		connection = ConnectionFactory.getConnection();
 		String sql = "INSERT INTO cavalo_corrida(id_cavalo, id_corrida) VALUES (?, ?)";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
@@ -29,6 +30,7 @@ public class InscricaoCorridaDao {
 	}
 	
 	public void apagar(int id) throws SQLException {
+		connection = ConnectionFactory.getConnection();
 		String sql = "DELETE FROM cavalo_corrida WHERE id = ?";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
@@ -40,6 +42,7 @@ public class InscricaoCorridaDao {
 	}
 	
 	public List<InscricaoCorrida> listarTodos() throws SQLException {
+		connection = ConnectionFactory.getConnection();
 		String sql = "SELECT id, id_cavalo, id_corrida FROM cavalo_corrida";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		InscricaoCorrida inscricao = null;
@@ -58,8 +61,21 @@ public class InscricaoCorridaDao {
 		return inscricoes;
 	}
 	
+	public void alterar(InscricaoCorrida inscricao) throws SQLException {
+		connection = ConnectionFactory.getConnection();
+		String sql = "UPDATE cavalo_corrida SET id_cavalo = ?, id_corrida = ? WHERE id = ?";
+		PreparedStatement stmt = connection.prepareStatement(sql);
+		stmt.setInt(1, inscricao.getCavalo().getId());
+		stmt.setInt(2, inscricao.getCorrida().getId());
+		stmt.setInt(3, inscricao.getId());
+		stmt.execute();
+		stmt.close();
+		connection.close();
+	}
+	
 	public InscricaoCorrida buscarUm(int id) throws SQLException {
-		String sql = "SELECT id, id_cavalo, id_corrida FROM cavalo_corrida";
+		connection = ConnectionFactory.getConnection();
+		String sql = "SELECT id, id_cavalo, id_corrida FROM cavalo_corrida WHERE id = ?";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
 		stmt.setInt(1, id);

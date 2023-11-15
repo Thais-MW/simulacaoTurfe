@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="pt-br" data-bs-theme="dark">
+<html lang="pt-br" data-bs-theme="light">
 <head>
 <meta charset="UTF-8" />
 <title>Inscrição de Cavalo</title>
@@ -17,64 +18,49 @@
 <script src="../scripts/main.js" defer></script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg bg-body-tertiary">
-		<div class="container">
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/">Home</a>
-					</li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false">
-							Opções </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="/cadastroProprietario/">Cadastrar
-									Proprietário</a></li>
-							<li><a class="dropdown-item" href="/cadastroCavalo/">Cadastrar
-									Cavalo</a></li>
-							<li><a class="dropdown-item" href="/agendamentoCorrida/">Agendar
-									Corrida</a></li>
-							<li><a class="dropdown-item" href="/inscricaoCavalo/">Inscrever
-									Cavalo em Corrida</a></li>
-						</ul></li>
-				</ul>
-			</div>
-			<a class="navbar-brand" href="/">Administração - Turfe</a>
-		</div>
-	</nav>
+	<jsp:include page="../partials/header.html" />
+	
 	<div class="container mt-5">
 		<div class="row">
 			<div class="col-sm-8 mb-3 mb-sm-0">
 				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title">Inscreva um cavalo em uma corrida</h5>
-						<form>
+						<h5 class="card-title">Altere uma inscrição</h5>
+						<form action="/simulacaoTurfe/InscricaoCorridaUpdate" method="get">
+							<input type="hidden" name="id" value="${ inscricao.id }" />
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="inputCavalo" class="form-label">Cavalo:</label>
-									<select class="form-select" id="inputCavalo"
+									<select name="idCavalo" class="form-select" id="inputCavalo"
 										aria-label="Cavalo a disputir corrida" required>
-										<option selected>Selecione um Cavalo</option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										<option>Selecione um Cavalo</option>
+										<c:forEach var="cavalo" items="${cavalos}">
+											<c:choose>
+												<c:when test="${ inscricao.getCavalo().id == cavalo.id }">
+													<option selected value="${cavalo.getId()}">${cavalo.getNumero()} - ${cavalo.getNome()}</option>
+												</c:when>
+												<c:otherwise>
+													<option value="${cavalo.getId()}">${cavalo.getNumero()} - ${cavalo.getNome()}</option>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
 									</select>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label for="inputCorrida" class="form-label">Corrida:</label>
-									<select class="form-select" id="inputCorrida"
+									<select name="idCorrida" class="form-select" id="inputCorrida"
 										aria-label="Corrida a ser disputada">
-										<option selected>Selecione uma Corrida</option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										<option>Selecione uma Corrida</option>
+										<c:forEach var="corrida" items="${corridas}">
+											<c:choose>
+												<c:when test="${ inscricao.getCorrida().id == corrida.id }">
+													<option selected value="${corrida.getId()}">${corrida.getData()}</option>
+												</c:when>
+												<c:otherwise>
+													<option value="${corrida.getId()}">${corrida.getData()}</option>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
 									</select>
 								</div>
 							</div>
@@ -90,6 +76,17 @@
 						<p class="card-text"></p>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="toast-container position-fixed bottom-0 end-0 p-3">
+		<div id="liveToast"
+			class="toast ${alterado ? 'show' : 'hide'}" role="alert"
+			aria-live="assertive" aria-atomic="true">
+			<div class="toast-header">
+				<strong class="me-auto">Inscrição alterada com sucesso!</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="toast"
+					aria-label="Close"></button>
 			</div>
 		</div>
 	</div>

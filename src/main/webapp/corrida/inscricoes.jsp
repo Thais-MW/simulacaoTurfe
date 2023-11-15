@@ -30,6 +30,8 @@
 							<th scope="col">Id</th>
 							<th scope="col">Cavalo</th>
 							<th scope="col">Data da Corrida</th>
+							<th scope="col"></th>
+							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -38,10 +40,23 @@
 								<th scope="row">${inscricao.getId()}</th>
 								<td>${inscricao.getCavalo().getNome()}</td>
 								<td>${inscricao.getCorrida().getData()}</td>
+								<td><a href="/simulacaoTurfe/InscricaoCorridaPrepare?id=${inscricao.id}" class="btn btn-primary">Editar</a></td>
+								<td><a href="/simulacaoTurfe/InscricaoCorridaDelete?id=${inscricao.id}" class="btn btn-primary">Excluir</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
+			</div>
+		</div>
+	</div>
+	<div class="toast-container position-fixed bottom-0 end-0 p-3">
+		<div id="liveToast"
+			class="toast ${apagado ? 'show' : 'hide'}" role="alert"
+			aria-live="assertive" aria-atomic="true">
+			<div class="toast-header">
+				<strong class="me-auto">Inscrição apagada com sucesso!</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="toast"
+					aria-label="Close"></button>
 			</div>
 		</div>
 	</div>
