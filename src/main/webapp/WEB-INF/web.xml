@@ -178,4 +178,34 @@
     <servlet-name>ProprietarioDelete</servlet-name>
     <url-pattern>/ProprietarioDelete</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CavaloPrepare</display-name>
+    <servlet-name>CavaloPrepare</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.CavaloPrepare</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CavaloPrepare</servlet-name>
+    <url-pattern>/CavaloPrepare</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CavaloUpdate</display-name>
+    <servlet-name>CavaloUpdate</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.CavaloUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CavaloUpdate</servlet-name>
+    <url-pattern>/CavaloUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CavaloDelete</display-name>
+    <servlet-name>CavaloDelete</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.CavaloDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CavaloDelete</servlet-name>
+    <url-pattern>/CavaloDelete</url-pattern>
+  </servlet-mapping>
 </web-app>

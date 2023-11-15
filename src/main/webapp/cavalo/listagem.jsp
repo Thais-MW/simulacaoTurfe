@@ -35,6 +35,8 @@
 							<th scope="col">Resistência</th>
 							<th scope="col">Preço</th>
 							<th scope="col">Proprietário</th>
+							<th scope="col"></th>
+							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -53,10 +55,26 @@
 								<td>${cavalo.getResistencia()}</td>
 								<td>R$ ${cavalo.getPreco()}</td>
 								<td>${cavalo.getProprietario().getNome()}</td>
+								<td><a href="/simulacaoTurfe/CavaloPrepare?id=${cavalo.id}" class="btn btn-primary">Editar</a></td>
+								<td><a href="/simulacaoTurfe/CavaloDelete?id=${cavalo.id}" class="btn btn-primary">Excluir</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="toast-container position-fixed bottom-0 end-0 p-3">
+		<div id="liveToast"
+			class="toast ${apagado ? 'show' : 'hide'}" role="alert"
+			aria-live="assertive" aria-atomic="true">
+			<div class="toast-header">
+				<strong class="me-auto">Cavalo ${cavalo.getNome()} -
+					${cavalo.getNumero()} adicionado com sucesso!</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="toast"
+					aria-label="Close"></button>
 			</div>
 		</div>
 	</div>

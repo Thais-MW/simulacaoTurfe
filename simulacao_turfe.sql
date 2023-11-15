@@ -20,7 +20,7 @@ CREATE TABLE cavalo(
     resistencia INT,
     preco FLOAT,
     id_proprietario INT,
-    FOREIGN KEY(id_proprietario) REFERENCES proprietario(id)
+    CONSTRAINT fk_cavalo__id_proprietario FOREIGN KEY(id_proprietario) REFERENCES proprietario(id) ON DELETE CASCADE
 );
 
 CREATE TABLE corrida(
@@ -33,8 +33,8 @@ CREATE TABLE cavalo_corrida(
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     id_cavalo INT,
     id_corrida INT,
-    FOREIGN KEY(id_cavalo) REFERENCES cavalo(id),
-    FOREIGN KEY(id_corrida) REFERENCES corrida(id)
+    CONSTRAINT fk_cavalo_corrida__id_cavalo FOREIGN KEY(id_cavalo) REFERENCES cavalo(id) ON DELETE CASCADE,
+    CONSTRAINT fk_cavalo_corrida__id_corrida FOREIGN KEY(id_corrida) REFERENCES corrida(id) ON DELETE CASCADE
 );
 
 CREATE TABLE usuario(
