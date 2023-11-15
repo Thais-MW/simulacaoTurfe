@@ -148,4 +148,24 @@
     <servlet-name>UsuarioLogin</servlet-name>
     <url-pattern>/UsuarioLogin</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProprietarioUpdate</display-name>
+    <servlet-name>ProprietarioUpdate</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.ProprietarioUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProprietarioUpdate</servlet-name>
+    <url-pattern>/ProprietarioUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProprietarioPrepare</display-name>
+    <servlet-name>ProprietarioPrepare</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.ProprietarioPrepare</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProprietarioPrepare</servlet-name>
+    <url-pattern>/ProprietarioPrepare</url-pattern>
+  </servlet-mapping>
 </web-app>

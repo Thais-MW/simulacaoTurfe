@@ -35,7 +35,8 @@ public class ProprietarioAdd extends HttpServlet {
 		String cpf = request.getParameter("cpf");
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
-		Proprietario proprietario = new Proprietario(nome, cpf, email, telefone);
+		String senha = request.getParameter("senha");
+		Proprietario proprietario = new Proprietario(nome, cpf, email, telefone, senha);
 		
 		boolean proprietarioCadastrado = true;
 		request.setAttribute("proprietarioCadastrado", proprietarioCadastrado);

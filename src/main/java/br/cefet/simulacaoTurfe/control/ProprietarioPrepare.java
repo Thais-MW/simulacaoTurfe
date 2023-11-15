@@ -6,24 +6,21 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
-import java.sql.SQLException;
 
-import br.cefet.simulacaoTurfe.dao.UsuarioDao;
-import br.cefet.simulacaoTurfe.model.Usuario;
+import br.cefet.simulacaoTurfe.dao.ProprietarioDao;
+import br.cefet.simulacaoTurfe.model.Proprietario;
 
 /**
- * Servlet implementation class UsuarioLogin
+ * Servlet implementation class ProprietarioPrepare
  */
-public class UsuarioLogin extends HttpServlet {
+public class ProprietarioPrepare extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UsuarioLogin() {
+    public ProprietarioPrepare() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,28 +29,22 @@ public class UsuarioLogin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
-		String senha = Usuario.sha256(request.getParameter("senha"));
-		
-		Usuario usuario = null;
-		
-		UsuarioDao dao = new UsuarioDao();
-		
-		HttpSession session = request.getSession();
-		String next = "home/index.jsp";
+		int id = Integer.parseInt(request.getParameter("id"));
+		String next = "proprietario/atualizar.jsp";
+		Proprietario p = null;
+		ProprietarioDao dao = new ProprietarioDao();
 		
 		try {
-			usuario = dao.buscarUm(email, senha);
-			if (usuario == null) {
-				throw new Exception("Usuário não encontrado");
+			p = dao.buscarUm(id);
+			if (p == null) {
+				throw new Exception("Proprietário não encontrado.");
 			}
-			session.setAttribute("usuario", usuario);
-		} catch(Exception e) {
+			request.setAttribute("proprietario", p);
+		} catch (Exception e) {
 			next = "error/index.jsp";
 			request.setAttribute("e", e);
-			request.setAttribute("msg", "Não foi possível realizar o login.");
+			request.setAttribute("msg", "Não foi possível concluir a operação desejada.");
 			e.printStackTrace();
-			session.invalidate();
 		} finally {
 			RequestDispatcher rd = request.getRequestDispatcher(next);
 			rd.forward(request, response);

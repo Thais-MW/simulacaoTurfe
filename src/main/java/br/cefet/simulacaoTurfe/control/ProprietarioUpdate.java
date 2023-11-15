@@ -6,24 +6,22 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
-import br.cefet.simulacaoTurfe.dao.UsuarioDao;
-import br.cefet.simulacaoTurfe.model.Usuario;
+import br.cefet.simulacaoTurfe.dao.ProprietarioDao;
+import br.cefet.simulacaoTurfe.model.Proprietario;
 
 /**
- * Servlet implementation class UsuarioLogin
+ * Servlet implementation class ProprietarioUpdate
  */
-public class UsuarioLogin extends HttpServlet {
+public class ProprietarioUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UsuarioLogin() {
+    public ProprietarioUpdate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,30 +30,34 @@ public class UsuarioLogin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		String nome = request.getParameter("nome");
+		String cpf = request.getParameter("cpf");
 		String email = request.getParameter("email");
-		String senha = Usuario.sha256(request.getParameter("senha"));
+		String telefone = request.getParameter("telefone");
+		String senha = request.getParameter("senha");
 		
-		Usuario usuario = null;
 		
-		UsuarioDao dao = new UsuarioDao();
+		Proprietario p = null;
+		ProprietarioDao dao = new ProprietarioDao();
 		
-		HttpSession session = request.getSession();
-		String next = "home/index.jsp";
+		boolean alterado = false;
 		
 		try {
-			usuario = dao.buscarUm(email, senha);
-			if (usuario == null) {
-				throw new Exception("Usuário não encontrado");
-			}
-			session.setAttribute("usuario", usuario);
-		} catch(Exception e) {
-			next = "error/index.jsp";
-			request.setAttribute("e", e);
-			request.setAttribute("msg", "Não foi possível realizar o login.");
+			p = dao.buscarUm(id);
+			p.setCpf(cpf);
+			p.setEmail(email);
+			p.setNome(nome);
+			p.setTelefone(telefone);
+			p.setSenha(senha);
+			dao.alterar(p);
+			alterado = true;
+			request.setAttribute("proprietario", p);
+		} catch (SQLException e) {
 			e.printStackTrace();
-			session.invalidate();
 		} finally {
-			RequestDispatcher rd = request.getRequestDispatcher(next);
+			request.setAttribute("proprietarioAlterado", alterado);
+			RequestDispatcher rd = request.getRequestDispatcher("proprietario/atualizar.jsp");
 			rd.forward(request, response);
 		}
 	}

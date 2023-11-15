@@ -7,7 +7,8 @@ CREATE TABLE proprietario(
     nome VARCHAR(30) NOT NULL,
     cpf VARCHAR(24),
     email VARCHAR(255),
-    telefone varchar(20)
+    telefone varchar(20),
+    senha VARCHAR(255)
 );
 
 CREATE TABLE cavalo(

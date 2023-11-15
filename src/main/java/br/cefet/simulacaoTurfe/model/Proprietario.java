@@ -6,12 +6,14 @@ public class Proprietario {
 	private String cpf;
 	private String email;
 	private String telefone;
+	private String senha;
 	
-	public Proprietario (String nome, String cpf, String email, String telefone) {
+	public Proprietario (String nome, String cpf, String email, String telefone, String senha) {
 		this.setNome(nome);
 		this.setCpf(cpf);
 		this.setEmail(email);
 		this.setTelefone(telefone);
+		this.setSenha(senha);
 	}
 	
 	public Proprietario () {
@@ -56,6 +58,14 @@ public class Proprietario {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 }

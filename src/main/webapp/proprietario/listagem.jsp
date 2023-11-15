@@ -32,6 +32,8 @@
 							<th scope="col">CPF</th>
 							<th scope="col">Email</th>
 							<th scope="col">Telefone</th>
+							<th scope="col"></th>
+							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -42,6 +44,8 @@
 								<td>${proprietario.getCpf()}</td>
 								<td>${proprietario.getEmail()}</td>
 								<td>${proprietario.getTelefone()}</td>
+								<td><a href="/simulacaoTurfe/ProprietarioPrepare?id=${proprietario.id}" class="btn btn-primary">Editar</a></td>
+								<td><a href="/simulacaoTurfe/ProprietarioDelete&id=${proprietario.id}" class="btn btn-primary">Excluir</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

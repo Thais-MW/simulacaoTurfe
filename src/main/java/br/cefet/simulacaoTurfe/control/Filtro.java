@@ -62,6 +62,7 @@ public class Filtro extends HttpFilter implements Filter {
 		
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		
+		
 		if (autorizado(usuario, url)) {			
 			chain.doFilter(rqt, rsp);
 			return;
