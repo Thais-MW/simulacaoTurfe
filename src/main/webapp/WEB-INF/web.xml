@@ -208,4 +208,34 @@
     <servlet-name>CavaloDelete</servlet-name>
     <url-pattern>/CavaloDelete</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CorridaPrepare</display-name>
+    <servlet-name>CorridaPrepare</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.CorridaPrepare</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CorridaPrepare</servlet-name>
+    <url-pattern>/CorridaPrepare</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CorridaUpdate</display-name>
+    <servlet-name>CorridaUpdate</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.CorridaUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CorridaUpdate</servlet-name>
+    <url-pattern>/CorridaUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CorridaDelete</display-name>
+    <servlet-name>CorridaDelete</servlet-name>
+    <servlet-class>br.cefet.simulacaoTurfe.control.CorridaDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CorridaDelete</servlet-name>
+    <url-pattern>/CorridaDelete</url-pattern>
+  </servlet-mapping>
 </web-app>

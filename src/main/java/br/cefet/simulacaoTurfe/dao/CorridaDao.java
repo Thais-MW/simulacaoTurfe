@@ -13,10 +13,10 @@ public class CorridaDao {
 	private Connection connection;
 
 	public CorridaDao() {
-		connection = ConnectionFactory.getConnection();
 	}
 
 	public void adicionar(Corrida corrida) throws SQLException {
+		connection = ConnectionFactory.getConnection();
 		String sql = "INSERT INTO corrida(data_agendada, valor_inscricao) VALUES (?,?)";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
@@ -29,6 +29,7 @@ public class CorridaDao {
 	}
 	
 	public void apagar(int id) throws SQLException {
+		connection = ConnectionFactory.getConnection();
 		String sql = "DELETE FROM corrida WHERE id = ?";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
@@ -39,6 +40,7 @@ public class CorridaDao {
 	}
 	
 	public void alterar(Corrida corrida) throws SQLException {
+		connection = ConnectionFactory.getConnection();
 		String sql = "UPDATE corrida SET data_agendada = ?, valor_inscricao = ?";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
@@ -51,6 +53,7 @@ public class CorridaDao {
 	}
 	
 	public List<Corrida> listarTodos() throws SQLException {
+		connection = ConnectionFactory.getConnection();
 		String sql = "SELECT id, data_agendada, valor_inscricao FROM corrida ORDER BY data_agendada";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
@@ -73,6 +76,7 @@ public class CorridaDao {
 	}
 	
 	public Corrida buscarUm(int id) throws SQLException {
+		connection = ConnectionFactory.getConnection();
 		String sql = "SELECT id, data_agendada, valor_inscricao FROM corrida WHERE id = ?";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		

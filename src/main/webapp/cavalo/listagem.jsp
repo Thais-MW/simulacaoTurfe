@@ -72,7 +72,7 @@
 			aria-live="assertive" aria-atomic="true">
 			<div class="toast-header">
 				<strong class="me-auto">Cavalo ${cavalo.getNome()} -
-					${cavalo.getNumero()} adicionado com sucesso!</strong>
+					${cavalo.getNumero()} excluído com sucesso!</strong>
 				<button type="button" class="btn-close" data-bs-dismiss="toast"
 					aria-label="Close"></button>
 			</div>

@@ -30,6 +30,8 @@
 							<th scope="col">Id</th>
 							<th scope="col">Data Agendada</th>
 							<th scope="col">Taxa de Inscrição</th>
+							<th scope="col"></th>
+							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -38,10 +40,23 @@
 								<th scope="row">${corrida.getId()}</th>
 								<td>${corrida.getData()}</td>
 								<td>${corrida.getInscricao()}</td>
+								<td><a href="/simulacaoTurfe/CorridaPrepare?id=${corrida.id}" class="btn btn-primary">Editar</a></td>
+								<td><a href="/simulacaoTurfe/CorridaDelete?id=${corrida.id}" class="btn btn-primary">Excluir</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
+			</div>
+		</div>
+	</div>
+	<div class="toast-container position-fixed bottom-0 end-0 p-3">
+		<div id="liveToast"
+			class="toast ${apagado ? 'show' : 'hide'}" role="alert"
+			aria-live="assertive" aria-atomic="true">
+			<div class="toast-header">
+				<strong class="me-auto">Corrida na data ${corrida.getData()} foi excluída com sucesso!</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="toast"
+					aria-label="Close"></button>
 			</div>
 		</div>
 	</div>
