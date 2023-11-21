@@ -18,7 +18,7 @@ class TesteProprietarioDao {
 		
 		try {
 			p.setId(dao.adicionar(p));
-			assertNotNull(p.getId());
+			assertNotEquals(p.getId(), 0);
 			assertInstanceOf(Proprietario.class, dao.buscarUm(p.getId()));
 			Proprietario outrop = p;
 			outrop.setNome("Silver");
