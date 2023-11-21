@@ -6,6 +6,7 @@ public class Corrida {
 	private int id;
 	private Timestamp dataHora;
 	private float taxaInscricao;
+	final public float taxaInscricaoMinima = 100;
 
 	public Corrida(Timestamp dataHora, float taxaInscricao) {
 		this.setData(dataHora);
@@ -36,6 +37,10 @@ public class Corrida {
 	}
 
 	public void setInscricao(float inscricao) {
+		if (inscricao < this.taxaInscricaoMinima) {
+			this.taxaInscricao = this.taxaInscricaoMinima;
+			return;
+		}
 		this.taxaInscricao = inscricao;
 	}
 }
