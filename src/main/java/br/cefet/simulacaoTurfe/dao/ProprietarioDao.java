@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,18 +16,24 @@ public class ProprietarioDao {
 	public ProprietarioDao() {
 	}
 
-	public void adicionar(Proprietario proprietario) throws SQLException {
+	public int adicionar(Proprietario proprietario) throws SQLException {
 		connection = ConnectionFactory.getConnection();
 		String sql = "INSERT INTO proprietario(nome, cpf, email, telefone, senha) values(?,?,?,?,?)";
-		PreparedStatement stmt = connection.prepareStatement(sql);
+		PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		stmt.setString(1, proprietario.getNome());
 		stmt.setString(2, proprietario.getCpf());
 		stmt.setString(3, proprietario.getEmail());
 		stmt.setString(4, proprietario.getTelefone());
 		stmt.setString(5, proprietario.getSenha());
-		stmt.execute();
+		stmt.executeUpdate();
+		ResultSet rs = stmt.getGeneratedKeys();
+		int lastInsertId = 0;
+		if (rs.next()) {
+			lastInsertId = rs.getInt(1);
+		}
 		stmt.close();
 		connection.close();
+		return lastInsertId;
 	}
 
 	public void apagar(int id) throws SQLException {
